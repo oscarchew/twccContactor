@@ -37,8 +37,8 @@ def connect(sid, ctype, cnts, status):
         sleep(5, verbose=False)
         _, status, _ = get_containers()
 
-    # Can't directly execute the command
-    print('ssh %s' % (ssh))
+    # Directly execute the command
+    os.system('ssh %s' % (ssh))
 
 def main(args):
     if args.cmd is None:

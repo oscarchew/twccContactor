@@ -29,7 +29,7 @@ def get_sid(name, sids):
     return sids[name]
 
 def build(name, gpu, stdout=STDOUT):
-    Popen(('twccli mk ccs -n %s -itype PyTorch -img pytorch-21.02-py3:latest -gpu %s' % (name, gpu)).split(), stdout=stdout, stderr=stdout)
+    Popen(('twccli mk ccs -n %s -itype PyTorch -img pytorch-20.08-py3:latest -gpu %s' % (name, gpu)).split(), stdout=stdout, stderr=stdout)
 
 def connect(sid, ctype, cnts, status):
     ssh = check_output(('twccli ls ccs -s %s -g%s' % (sid, ctype)).split()).decode('utf-8').strip()

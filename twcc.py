@@ -49,7 +49,7 @@ def main(args):
 
     # mk
     elif args.cmd == 'mk':
-        build(args.name, args.gpu)
+        build(args.name, args.gpu, stdout=None)
     else:
         containers, status, sids = get_containers() 
         sid = get_sid(args.name, sids) if args.name else args.site_id
@@ -58,7 +58,7 @@ def main(args):
         if args.cmd == 'cnt':
             # Not found, make a new container
             if sid == -1:
-                build(args.name if args.name else args.site_id, args.gpu, stdout=DEVNULL)
+                build(args.name if args.name else args.site_id, args.gpu, stdout=None)
                 sleep(5, verbose=False)
                 containers, status, sids = get_containers()
                 sid = get_sid(args.name, sids)
